@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Fang smileyen!</title>
+  <style>
+    body {
+      font-family: Comic Sans MS, sans-serif;
+      text-align: center;
+      background-color: #e0f7fa;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #00796b;
+    }
+
+    #poeng {
+      font-size: 24px;
+      margin: 10px;
+      color: #00695c;
+    }
+
+    #smiley {
+      position: absolute;
+      font-size: 50px;
+      cursor: pointer;
+      transition: top 0.3s, left 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Fang smileyen!</h1>
+  <div id="poeng">Poeng: 0</div>
+  <div id="smiley">😄</div>
+
+  <script>
+    const smiley = document.getElementById("smiley");
+    const poengDiv = document.getElementById("poeng");
+    let poeng = 0;
+
+    // Flytt smileyen til et tilfeldig sted
+    function flyttSmiley() {
+      const bredde = window.innerWidth - 100;
+      const hoyde = window.innerHeight - 100;
+      const x = Math.random() * bredde;
+      const y = Math.random() * hoyde;
+      smiley.style.left = x + "px";
+      smiley.style.top = y + "px";
+    }
+
+    smiley.addEventListener("click", () => {
+      poeng++;
+      poengDiv.textContent = "Poeng: " + poeng;
+      flyttSmiley();
+    });
+
+    // Startposisjon
+    flyttSmiley();
+  </script>
+</body>
+</html>
